@@ -30,7 +30,7 @@ public class LoginController : Controller
         });
     }
 
-    private (bool IsValid, string ErrorMessage) ValidateLoginData(LoginModel model)
+    private static (bool IsValid, string ErrorMessage) ValidateLoginData(LoginModel model)
     {
         if (string.IsNullOrEmpty(model.TypeIdentification))
             return (false, "Le type d'identification est requis.");
@@ -49,7 +49,7 @@ public class LoginController : Controller
         return (true, string.Empty);
     }
 
-    private void SaveLoginData(LoginModel model)
+    private static void SaveLoginData(LoginModel model)
     {
         Console.WriteLine("\n===== Login Data =====");
         Console.WriteLine($"Type         : {model.TypeIdentification}");
